@@ -5,113 +5,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
-    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <style type="text/tailwindcss">
         @custom-variant dark (&:where(.dark, .dark *));
-</style>
+
+        @layer components {
+            .btn-primary {
+                @apply underline px-6 py-3 bg-blue-800 text-white rounded-full hover:bg-yellow-400 hover:text-blue-950 transition-colors duration-300;
+            }
+            .btn-secondary {
+                @apply px-6 py-4 bg-blue-800 text-white flex items-center justify-between rounded-lg hover:bg-cyan-400 hover:text-blue-950 transition-colors duration-300;
+            }
+            .accent {
+                @apply px-4 py-2 text-blue-800 dark:text-cyan-300 hover:text-yellow-500 transition-colors duration-300;
+            }
+            .content {
+                @apply h-[40vh] flex flex-col justify-center text-left border border-cyan-300 dark:border-slate-700 rounded-2xl p-8 md:p-12 my-8 bg-white dark:bg-slate-900 shadow-lg shadow-blue-900/10 hover:border-yellow-400 transition-all duration-300;
+            }
+            .hero {
+                @apply underline decoration-cyan-400 text-5xl md:text-7xl font-black text-blue-900 dark:text-white my-12 hover:text-yellow-400 transition-colors duration-300 hover:decoration-blue-700;
+            }
+            .navigation {
+                @apply flex justify-between items-center mx-6 md:mx-[50px] mb-10 max-[600px]:flex-col max-[600px]:gap-[15px];
+            }
+            .ul {
+                @apply flex gap-3 list-none max-[600px]:flex-col max-[600px]:text-center;
+            }
+            .main {
+                @apply mx-auto max-w-5xl px-6;
+            }
+            .span {
+                @apply text-yellow-400 hover:text-blue-400 transition-colors duration-300;
+            }
+            .header-nav{
+                @apply bg-blue-900/90 dark:bg-blue-950/90 border border-cyan-400/40 rounded-2xl p-4 shadow-xl shadow-cyan-950/20 backdrop-blur-md;
+            }
+            .footer{
+                @apply mx-6 mt-12 mb-6 border-t border-cyan-400/30 pt-6;
+            }
+    }
+    </style>
 </head>
 
-<body class="text-center dark:bg-slate-900 bg-white dark:text-slate-900 dark:text-white">
+<body class="relative text-center bg-white text-blue-950 dark:bg-slate-950 dark:text-white transition-colors duration-500">
 
-    <h1
-        class="text-4xl font-black tracking-wider uppercase underline decoration-yellow-400 decoration-4 text-blue-800 max-[600px]:text-5xl hover:text-yellow-400 hover:decoration-blue-800 transition-colors duration-500">
-        Carl Benedict P. Ella
+    <h1 class="hero my-12">
+        <span class="block text-sm md:text-base tracking-[0.5em] text-cyan-500 no-underline mb-4">
+            WELCOME TO MY WORLD
+        </span>
+        Carl Benedict
+        <span class="block text-cyan-400">
+            P. Ella<span class="span">.</span>
+        </span>
+
+        <span class="block text-xs md:text-sm tracking-[0.4em] mt-6 text-cyan-500 no-underline">
+            Cyber WEB
+        </span>
     </h1>
-    <button id="toggledark"
-        class="bg-blue-800 text-yellow-300 py-3 px-6 border-0 rounded-[10px] transition-colors duration-500 hover:bg-yellow-400 hover:text-blue-900">
-        Toggle
+
+
+    <button id="toggledark" class="btn-primary mb-8">
+        Toggle 
     </button>
 
+  
     <header>
-        <nav class="flex justify-between items-center mx-[50px] max-[600px]:flex-col max-[600px]:gap-[15px]">
+        <nav class="navigation header-nav">
 
-            <span class="text-blue-900 transition-colors duration-500 hover:text-yellow-500">@CarloCarl</span>
+            <span class="font-bold text-blue-800 dark:text-cyan-300 hover:text-yellow-400 transition-colors duration-300">
+                @CarloCarl
+            </span>
 
-            <ul class="flex gap-5 p-0 m-0 list-none max-[600px]:flex-col max-[600px]:text-center">
-                <li><a class="text-blue-800 transition-colors duration-500 hover:text-yellow-500"
-                        href="#projects">Projects</a></li>
-                <li><a class="text-blue-800 transition-colors duration-500 hover:text-yellow-500"
-                        href="#services">Services</a></li>
-                <li><a class="text-blue-800 transition-colors duration-500 hover:text-yellow-500"
-                        href="#contact">Contact Me</a></li>
+            <ul class="ul">
+                <li>
+                    <a class="accent" href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a class="accent" href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a class="accent" href="#contact">Contact</a>
+                </li>
             </ul>
 
         </nav>
     </header>
 
-    <main
-        class="flex flex-wrap gap-[30px] p-[50px] m-[50px] max-[600px]:p-[15px] max-[600px]:m-[10px] max-[600px]:gap-5">
+    <main class="main">
+
 
         <section id="projects"
-            class="flex-1 min-w-[280px] border-2 border-blue-900 p-5 max-[600px]:flex-[1_1_100%] max-[600px]:min-w-0 max-[600px]:p-[15px] bg-blue-600">
+            class="content relative overflow-hidden border-l-4 border-l-cyan-400 bg-blue-700/10 dark:bg-cyan-950/30 hover:shadow-cyan-400/20">
 
-            <h2 class="text-yellow-300 max-[768px]:text-5xl max-[768px]:text-yellow-400">
-                My Projects
+            <span class="absolute -right-2 -bottom-10 text-[150px] font-black text-cyan-400/10 pointer-events-none select-none">
+                01
+            </span>
+
+            <h2 class="hero relative z-10">
+                About<span class="span">.</span>
             </h2>
 
-            <p class="text-white transition-colors duration-1000 hover:text-yellow-300">
-                Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
-            </p>
-            <p class="text-blue-600 transition-colors duration-1000 hover:text-yellow-400">
-                Easter eggs
+            <p class="accent relative z-10 text-left">
+                This amazing page minimum design
+                <span class="text-yellow-400">:)</span>
             </p>
 
+            <div class="absolute top-6 right-6 w-3 h-3 bg-yellow-400 rounded-full"></div>
         </section>
 
-        <section id="services" class=" flex-1 min-w-[280px] border bg-gray-300 dark:border-slate-800 dark:bg-slate-900">
+        <section id="services"
+            class="content relative overflow-hidden border-l-4 border-l-cyan-400 bg-cyan-500/10 dark:bg-blue-900/50 hover:shadow-cyan-400/20">
 
-            <h2 class="text-blue-900 max-[768px]:text-5xl max-[768px]:text-blue-800">
-                My Services
+            <span class="absolute -right-2 -bottom-10 text-[150px] font-black text-cyan-400/10 pointer-events-none select-none">
+                02
+            </span>
+
+            <h2 class="hero relative z-10">
+                Services<span class="span">.</span>
             </h2>
 
-            <p class="text-blue-950 transition-colors duration-1000 hover:text-yellow-400">
-                Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems
-                Analyst
+            <p class="accent relative z-10 text-left">
+                For yours truly
+                <span class="text-yellow-400">:)</span>
             </p>
 
-            <p></p>
-
-
-
+            <div class="absolute top-6 right-6 flex gap-2">
+                <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+                <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            </div>
         </section>
 
+  
         <section id="contact"
-            class="flex-1 min-w-[280px] border-2 border-blue-900 p-5 max-[600px]:flex-[1_1_100%] max-[600px]:min-w-0 max-[600px]:p-[15px] bg-blue-100">
+            class="content relative overflow-hidden border-l-4 border-l-cyan-400 bg-blue-800/10 dark:bg-blue-900/60 hover:shadow-yellow-400/10">
 
-            <h2 class="text-blue-900 max-[768px]:text-5xl max-[768px]:text-blue-800">
-                Let's build together!
+            <span class="absolute -right-5 -bottom-16 text-[150px] font-black text-yellow-400/10 pointer-events-none select-none">
+                03
+            </span>
+
+            <h2 class="hero relative z-10">
+                Contact<span class="span">.</span>
             </h2>
 
-            <form action="#" class="flex flex-col gap-5">
-
-                <label for="name" class="text-blue-900">Name</label>
-                <input type="text" id="name" name="name" required class="border border-blue-700 bg-white">
-
-                <label for="email" class="text-blue-900">Email</label>
-                <input type="email" name="email" id="email" required class="border border-blue-700 bg-white">
-
-                <label for="message" class="text-blue-900">Message</label>
-                <textarea name="message" id="message" rows="5" required
-                    class="border border-blue-700 bg-white"></textarea>
-
-                <button type="submit"
-                    class="bg-blue-800 text-yellow-300 py-3 px-6 border-0 rounded-[10px] transition-colors duration-1000 hover:bg-yellow-400 hover:text-blue-900">
-                    Send Message
-                </button>
-
-            </form>
-
+            <p class="accent relative z-10 text-left">
+                Me ASAP
+                <span class="text-yellow-400">:)</span>
+            </p>
         </section>
 
     </main>
+
+
+    <footer class="footer">
+        <p class="text-xs tracking-[0.3em] text-cyan-600 dark:text-cyan-400">
+            cyberpunk inspired
+        </p>
+
+        <p class="text-sm text-blue-800 dark:text-cyan-100 mt-2">
+           Cyber space
+            <span class="text-yellow-400">@</span>
+        </p>
+    </footer>
+
     <script>
         const toggleButton = document.querySelector("#toggledark");
-        const html = document.querySelector('html');
+        const html = document.querySelector("html");
+
         toggleButton.addEventListener("click", function () {
             html.classList.toggle("dark");
         });
     </script>
-</body>
 
+</body>
 </html>
